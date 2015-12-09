@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/StarStaffLibrary.iml" filepath="$PROJECT_DIR$/StarStaffLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library.iml" filepath="$PROJECT_DIR$/library.iml" />
     </modules>
   </component>
 </project>

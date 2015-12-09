@@ -1,4 +1,4 @@
-package com.starstaff;
+package com.starstaff.library;
 
 /**
  * Created by mileslux on 12/9/2015.
