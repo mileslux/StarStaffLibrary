@@ -9,6 +9,10 @@ import static org.testng.Assert.*;
  * Created by mileslux on 12/9/2015.
  */
 public class TrianglesTest {
+    private static final double DELTA = 1e-8;
+    private final Precision precision = new Precision(DELTA);
+    private final Triangles triangles = new Triangles(precision);
+
     @DataProvider
     public Object[][] validData() {
         return new Object[][]{
@@ -17,7 +21,7 @@ public class TrianglesTest {
                 {40, 9, 41, 180},
                 {0.7, 2.5, 2.4, 0.84},
                 {1, 1, 1.41421356, 0.5},
-                {1.414213562, 1.732050807, 2.23606797, 1.224744871}
+                {1.4142135623, 1.7320508075, 2.236067977, 1.2247448713}
         };
     }
 
@@ -37,13 +41,13 @@ public class TrianglesTest {
 
     @Test(dataProvider = "validData")
     public void testAreaRightAngledTriangleValid(double a, double b, double c, double area) {
-        assertEquals(Triangles.areaRightAngledTriangle(a, b, c),
+        assertEquals(triangles.areaRightAngledTriangle(a, b, c),
                 area,
-                Triangles.DELTA);
+                DELTA);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "invalidData")
     public void testAreaRightAngledTriangleInvalid(double a, double b, double c) {
-        Triangles.areaRightAngledTriangle(a, b, c);
+        triangles.areaRightAngledTriangle(a, b, c);
     }
 }

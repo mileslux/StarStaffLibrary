@@ -6,13 +6,7 @@ package com.starstaff;
  */
 public class Precision
 {
-    public static final double DEFAULT_DELTA = 1e-7;
-
-    public final double delta;
-
-    public Precision() {
-        delta = DEFAULT_DELTA;
-    }
+    private final double delta;
 
     public Precision(double delta) {
         if (!Double.isFinite(delta))
@@ -21,6 +15,10 @@ public class Precision
             throw new IllegalArgumentException("delta should be non-negative");
 
         this.delta = delta;
+    }
+
+    public double getDelta() {
+        return delta;
     }
 
     public boolean lessOrEqualUnchecked(double a, double b) {
