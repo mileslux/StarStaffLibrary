@@ -14,7 +14,7 @@ public class TrianglesTest {
     private final Triangles triangles = new Triangles(precision);
 
     @DataProvider
-    public Object[][] validData() {
+    public Object[][] areaRightAngledTriangleValid() {
         return new Object[][]{
                 {3, 4, 5, 6},
                 {13, 12, 5, 30},
@@ -26,7 +26,7 @@ public class TrianglesTest {
     }
 
     @DataProvider
-    public Object[][] invalidData() {
+    public Object[][] areaRightAngledTriangleInvalid() {
         return new Object[][]{
                 {Double.NaN, 1, 1},
                 {1, Double.NEGATIVE_INFINITY, 1},
@@ -39,14 +39,14 @@ public class TrianglesTest {
         };
     }
 
-    @Test(dataProvider = "validData")
+    @Test(dataProvider = "areaRightAngledTriangleValid")
     public void testAreaRightAngledTriangleValid(double a, double b, double c, double area) {
         assertEquals(triangles.areaRightAngledTriangle(a, b, c),
                 area,
                 DELTA);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "invalidData")
+    @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "areaRightAngledTriangleInvalid")
     public void testAreaRightAngledTriangleInvalid(double a, double b, double c) {
         triangles.areaRightAngledTriangle(a, b, c);
     }
